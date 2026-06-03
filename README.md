@@ -9,21 +9,20 @@ Access school news, calendar events, notifications, and document attachments thr
 ### 1. Install
 
 ```bash
-npm install infomentor-mcp
+git clone https://github.com/MacL3an/infomentor-mcp.git
+cd infomentor-mcp
+npm install
+npm run build
 ```
 
 ### 2. Authenticate (one-time)
 
 ```bash
-npx infomentor-login
+npm install puppeteer   # needed for the login browser
+node dist/login.js
 ```
 
 This opens a browser. Select your municipality, log in via BankID (or your school's SSO), and the script saves OAuth2 tokens to `~/.infomentor/config.json`. You only need to do this once — the tokens refresh automatically.
-
-> **Note:** The login script requires `puppeteer` as a peer dependency:
-> ```bash
-> npm install puppeteer
-> ```
 
 ### 3. Configure your MCP client
 
@@ -35,8 +34,8 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 {
   "mcpServers": {
     "infomentor": {
-      "command": "npx",
-      "args": ["infomentor-mcp"]
+      "command": "node",
+      "args": ["/path/to/infomentor-mcp/dist/index.js"]
     }
   }
 }
@@ -45,7 +44,7 @@ Add to `~/Library/Application Support/Claude/claude_desktop_config.json`:
 #### Claude Code
 
 ```bash
-claude mcp add infomentor -- npx infomentor-mcp
+claude mcp add infomentor -- node /path/to/infomentor-mcp/dist/index.js
 ```
 
 ## Tools
