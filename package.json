@@ -1,0 +1,33 @@
+{
+  "name": "infomentor-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for InfoMentor — access school news, calendar, notifications, and attachments",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "infomentor-mcp": "dist/index.js",
+    "infomentor-login": "dist/login.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/index.ts"
+  },
+  "keywords": ["mcp", "infomentor", "school", "sweden", "bankid"],
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "tsx": "^4.0.0",
+    "@types/node": "^22.0.0"
+  },
+  "peerDependencies": {
+    "puppeteer": ">=22.0.0"
+  },
+  "peerDependenciesMeta": {
+    "puppeteer": {
+      "optional": true
+    }
+  }
+}
